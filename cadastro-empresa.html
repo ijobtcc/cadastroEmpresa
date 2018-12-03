@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar color="roxo">
+    <ion-title>Tela Cadastro Empresa</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+		<form #form="ngForm" novalidate>
+  <ion-list>
+
+  	<ion-item>
+  		<ion-label color="primary">Nome: </ion-label>
+  		<ion-input placeholder="Digite o nome da empresa"></ion-input>
+  	</ion-item>
+
+  	<ion-item>
+		  
+  		<ion-label color="primary">CNPJ: </ion-label>
+		  <ion-input placeholder="O campo é obrigatório"></ion-input>
+			</ion-item>
+		
+		
+		<ion-item>
+				<ion-label stacked>E-mail*</ion-label>
+				<ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>
+			</ion-item>
+			<ion-item *ngIf="email.errors && (email.dirty || email.touched)" class="text-danger">
+				O campo é obrigatório
+			</ion-item>
+			<ion-item>
+					<ion-label stacked>Senha*</ion-label>
+					<ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required></ion-input>
+				</ion-item>
+				<ion-item *ngIf="password.errors && (password.dirty || password.touched)" class="text-danger">
+					O campo é obrigatório
+				</ion-item>
+	
+			</ion-list>
+	
+			<button ion-button block color="roxo" [disabled]="!form.form.valid"(click)="CriarConta()" (click)="goToHomePage()">
+				Criar conta
+			</button>
+		</form>
+
+  <!--	<ion-item>
+  		<ion-label color="primary">Email: </ion-label>
+  		<ion-input type="email" placeholder="Digite seu email"></ion-input>
+  	</ion-item>
+
+  	<ion-item>
+  		<ion-label color="primary">Senha: </ion-label>
+  		<ion-input type="password" placeholder="Digite sua senha"></ion-input>
+  	</ion-item>
+
+  	<ion-item>
+  		<ion-label color="primary">Confirme sua senha: </ion-label>
+  		<ion-input type="password" placeholder="Digite novamente a sua senha"></ion-input>
+  	</ion-item>
+
+  	</ion-list>
+  	<button ion-button full (click)="goToHomePage()">Cadastrar!</button>
+  	<button ion-button icon-voltar>
+  		<ion-icon name="return-left" (click)="goToOpcaoUsuario()"></ion-icon>-->
+  
+</ion-content>
